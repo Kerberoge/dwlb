@@ -117,7 +117,7 @@ typedef struct {
 	
 	uint32_t mtags, ctags, urg, sel;
 	char *layout, *window_title;
-	uint32_t layout_idx, last_layout_idx;
+	uint32_t layout_idx;
 	CustomText title, status;
 
 	bool hidden, bottom;
@@ -634,10 +634,14 @@ pointer_frame(void *data, struct wl_pointer *pointer)
 	} else if (seat->pointer_x < (x += TEXT_WIDTH(seat->bar->layout, seat->bar->width - x, seat->bar->textpadding))) {
 		/* Clicked on layout */
 		if (ipc) {
-			if (seat->pointer_button == BTN_LEFT)
-				zdwl_ipc_output_v2_set_layout(seat->bar->dwl_wm_output, seat->bar->last_layout_idx);
-			else if (seat->pointer_button == BTN_RIGHT)
-				zdwl_ipc_output_v2_set_layout(seat->bar->dwl_wm_output, 2);
+			if (seat->pointer_button == BTN_LEFT) {
+				int next_layout_idx = seat->bar->layout_idx;
+				if (next_layout_idx == 2)
+					next_layout_idx = 0;
+				else
+					next_layout_idx++;
+				zdwl_ipc_output_v2_set_layout(seat->bar->dwl_wm_output, next_layout_idx);
+			}
 		}
 	} else {
 		uint32_t status_x = seat->bar->width / buffer_scale - TEXT_WIDTH(seat->bar->status.text, seat->bar->width - x, seat->bar->textpadding) / buffer_scale;
@@ -873,7 +877,6 @@ dwl_wm_output_layout(void *data, struct zdwl_ipc_output_v2 *dwl_wm_output,
 {
 	Bar *bar = (Bar *)data;
 
-	bar->last_layout_idx = bar->layout_idx;
 	bar->layout_idx = layout;
 }
 
