@@ -7,7 +7,7 @@ clean:
 	rm -f dwlb *.o *-protocol.h *-protocol.c
 
 install: all
-	install -D -t $(PREFIX)/bin dwlb
+	install -s -D -t $(PREFIX)/bin dwlb
 
 WAYLAND_PROTOCOLS=$(shell pkg-config --variable=pkgdatadir wayland-protocols)
 WAYLAND_SCANNER=$(shell pkg-config --variable=wayland_scanner wayland-scanner)
