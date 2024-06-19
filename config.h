@@ -17,7 +17,7 @@ static bool custom_title = false;
 // scale
 static uint32_t buffer_scale = 1;
 // font
-static char *fontstr = "DejaVu Sans Mono:size=10.5";
+static char *fontstr = "DejaVu Sans Mono:size=9";
 // tag names
 static char *tags_names[] = { "1", "2", "3", "4" };
 
@@ -26,17 +26,23 @@ static char *tags_names[] = { "1", "2", "3", "4" };
 						.blue = (hex >> 8 & 0xFF) + 0x100 * (hex >> 8 & 0xFF), \
 						.alpha = (hex & 0xFF) + 0x100 * (hex & 0xFF)	}
 
-static pixman_color_t active_fg_color =          COLOR(0xddddddff);
-static pixman_color_t active_bg_color =          COLOR(0x3d3a54ff);
+#define FG		0xeeeeeeff
+#define BG		0x1d293dff
+#define AC		0x244a8aff
+#define UR_FG	0xffffffff
+#define UR_BG	0xff5050ff
 
-static pixman_color_t occupied_fg_color =        COLOR(0xddddddff);
-static pixman_color_t occupied_bg_color =        COLOR(0x222033ff);
+static pixman_color_t active_fg_color =          COLOR(FG);
+static pixman_color_t active_bg_color =          COLOR(AC);
 
-static pixman_color_t inactive_fg_color =        COLOR(0xddddddff);
-static pixman_color_t inactive_bg_color =        COLOR(0x222033ff);
+static pixman_color_t occupied_fg_color =        COLOR(FG);
+static pixman_color_t occupied_bg_color =        COLOR(BG);
 
-static pixman_color_t urgent_fg_color =          COLOR(0xffffffff);
-static pixman_color_t urgent_bg_color =          COLOR(0xff5050ff);
+static pixman_color_t inactive_fg_color =        COLOR(FG);
+static pixman_color_t inactive_bg_color =        COLOR(BG);
 
-static pixman_color_t middle_bg_color =          COLOR(0x222033ff);
-static pixman_color_t middle_bg_color_selected = COLOR(0x3d3a54ff);
+static pixman_color_t urgent_fg_color =          COLOR(UR_FG);
+static pixman_color_t urgent_bg_color =          COLOR(UR_BG);
+
+static pixman_color_t middle_bg_color =          COLOR(BG);
+static pixman_color_t middle_bg_color_selected = COLOR(AC);
