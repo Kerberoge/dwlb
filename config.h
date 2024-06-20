@@ -17,7 +17,7 @@ static bool custom_title = false;
 // scale
 static uint32_t buffer_scale = 1;
 // font
-static char *fontstr = "DejaVu Sans Mono:size=9";
+static char *fontstr = "Open Sans SemiBold:size=9";
 // tag names
 static char *tags_names[] = { "1", "2", "3", "4" };
 
