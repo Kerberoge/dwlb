@@ -65,7 +65,6 @@
 	} while (0)
 
 #define PROGRAM "dwlb"
-#define VERSION "0.2"
 #define USAGE								\
 	"usage: dwlb [OPTIONS]\n"					\
 	"Commands\n"							\
@@ -73,7 +72,6 @@
 	"	-status-stdin	[OUTPUT]	set status text from stdin\n"	\
 	"	-title	[OUTPUT] [TEXT]		set title text, if custom title is enabled\n"	\
 	"Other\n"							\
-	"	-v				get version information\n" \
 	"	-h				view this help text\n"
 
 #define TEXT_MAX 2048
@@ -1574,9 +1572,6 @@ main(int argc, char **argv)
 			if (++i + 1 >= argc)
 				DIE("Option -title requires two arguments");
 			client_send_command(&sock_address, argv[i], "title", argv[i + 1]);
-			return 0;
-		} else if (!strcmp(argv[i], "-v")) {
-			fprintf(stderr, PROGRAM " " VERSION "\n");
 			return 0;
 		} else if (!strcmp(argv[i], "-h")) {
 			fprintf(stderr, USAGE);
