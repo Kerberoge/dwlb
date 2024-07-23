@@ -27,16 +27,16 @@ static char *tags_names[] = { "1", "2", "3", "4" };
 						.alpha = (hex & 0xFF) + 0x100 * (hex & 0xFF)	}
 
 static pixman_color_t active_fg_color =          COLOR(0xddddddff);
-static pixman_color_t active_bg_color =          COLOR(0x3d3a54ff);
+static pixman_color_t active_bg_color =          COLOR(0x206141ff);
 
 static pixman_color_t occupied_fg_color =        COLOR(0xddddddff);
-static pixman_color_t occupied_bg_color =        COLOR(0x222033ff);
+static pixman_color_t occupied_bg_color =        COLOR(0x1c1e1eff);
 
 static pixman_color_t inactive_fg_color =        COLOR(0xddddddff);
-static pixman_color_t inactive_bg_color =        COLOR(0x222033ff);
+static pixman_color_t inactive_bg_color =        COLOR(0x1c1e1eff);
 
 static pixman_color_t urgent_fg_color =          COLOR(0xffffffff);
 static pixman_color_t urgent_bg_color =          COLOR(0xff5050ff);
 
-static pixman_color_t middle_bg_color =          COLOR(0x222033ff);
-static pixman_color_t middle_bg_color_selected = COLOR(0x3d3a54ff);
+static pixman_color_t middle_bg_color =          COLOR(0x1c1e1eff);
+static pixman_color_t middle_bg_color_selected = COLOR(0x206141ff);
